@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Iimg } from '../module/iimg';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +12,11 @@ apiUrl:string ='https://jsonplaceholder.typicode.com/photos'
 
 post:Iimg[]=[]
 
-preferiti:Iimg[]=[]
 
-cardsub = new BehaviorSubject<Iimg[]>([])
-card$ = this.cardsub.asObservable()
+
+
+cardsub = new Subject<Iimg>()
+card$ = this.cardsub.asObservable() //sunbject per i like
 
 
   constructor(private http:HttpClient) { }
@@ -25,14 +26,11 @@ card$ = this.cardsub.asObservable()
     return this.http.get<Iimg[]>(this.apiUrl)
   }
 
-  addToFavourites(product:Iimg):void{this.preferiti.push(product)
+  addToFavourites(product:Iimg):void{this.cardsub.next(product)
 
   }
 
 
-  remuve(product:Iimg){this.post =this.post.filter(p=>p!=product)
-    this.cardsub.next(this.post)
-  }
 
 
 

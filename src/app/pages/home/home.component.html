@@ -1,5 +1,5 @@
 <div class="container">
-  <H1 *ngFor="let a of preferiti"></H1>
+  <H1>Counter:{{ preferiti.length }}</H1>
   <div class="row">
     <div class="col" *ngFor="let b of post">
       <div class="card" style="width: 18rem">
@@ -10,9 +10,7 @@
           <button href="#" class="btn btn-success" (click)="FavorOnclick(b)">
             preferiti
           </button>
-          <button href="#" class="btn btn-danger" (click)="remuve(post)">
-            elimina
-          </button>
+          <button href="#" class="btn btn-danger">elimina</button>
         </div>
       </div>
     </div>
