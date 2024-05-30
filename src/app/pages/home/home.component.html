@@ -1,0 +1,20 @@
+<div class="container">
+  <H1 *ngFor="let a of preferiti"></H1>
+  <div class="row">
+    <div class="col" *ngFor="let b of post">
+      <div class="card" style="width: 18rem">
+        <img [src]="[b.thumbnailUrl]" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{ b.title }}</h5>
+
+          <button href="#" class="btn btn-success" (click)="FavorOnclick(b)">
+            preferiti
+          </button>
+          <button href="#" class="btn btn-danger" (click)="remuve(post)">
+            elimina
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
