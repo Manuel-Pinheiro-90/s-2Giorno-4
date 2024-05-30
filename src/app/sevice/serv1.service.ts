@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Iimg } from '../module/iimg';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
